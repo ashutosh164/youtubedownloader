@@ -10,9 +10,18 @@
     <div class="container">
         {% if message %}
             {% for msg in message %}
-
+                <div>
+                    {{ msg }}
+                    <button type="button"></button>
+                </div>
             {% endfor %}
-        {% endifn%}
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <label for="link"><h3>Enter URL: </h3></label>
+            <input type="text">
+            <input type="submit" value="Download Video">
+        </form>
     </div>
 </body>
 </html>

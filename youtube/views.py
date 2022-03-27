@@ -11,7 +11,6 @@ def index(request):
             return redirect('/')
         video = YouTube(url)
         stream = video.streams.get_highest_resolution()
-        messages.info(request, 'Video Downloading please wait.....')
         stream.download()
         messages.info(request, 'Video Downloaded Successfully ........')
         return render(request, 'index.html', {'url': url})
